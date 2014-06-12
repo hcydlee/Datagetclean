@@ -21,6 +21,6 @@ download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurant
               method="internal" )
 doc<-xmlTreeParse('restaurants.xml')
 res<-xmlRoot(doc)
-xmlName(res)
-res[[1]][[2]]
-zip<-xpathSApply(res,"//zipcode",xmlValue)
+zip<-getNodeSet(res,"//zipcode")
+zipcode<-sapply(zip,xmlValue)
+table(zipcode)
